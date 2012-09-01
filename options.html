@@ -1,0 +1,74 @@
+<html>
+<script>
+/*
+	URL Button Popup
+	Copyright 2011 DracSoft.com
+	Started 3/19/2011 @ 18:00 GMT
+	Finished 3/19/2011
+
+	License: GPL v3
+	THIS MUST BE DISTRIBUTED NON-MINIFIED AND NON-OBFUSCATED	
+*/
+
+// Saves options to localStorage.
+function save_options() {    
+  var url = document.getElementById("url").value;
+  var width = document.getElementById("width").value;
+  var height = document.getElementById("height").value;
+  
+  localStorage["url"] = url;
+  localStorage["width"] = width;  
+  localStorage["height"] = height;
+
+  // Update status to let user know options were saved.
+  var status = document.getElementById("status");
+  status.innerHTML = "Options Saved.";
+  setTimeout(function() {
+    status.innerHTML = "";
+  }, 3000);
+}
+
+function restore_options() {
+  document.getElementById("url").value = localStorage["url"];
+  document.getElementById("width").value = localStorage["width"];
+  document.getElementById("height").value= localStorage["height"];
+}
+</script>
+<body onload="restore_options()">
+<div style="margin: 0 auto; width: 100%;width: 600px;">
+<div style=" border: solid 1px #ccc; margin: 0 auto; padding: 10px 10px;">
+	<h4>URL Button Popup - Copyright 2011 <a href="http://www.dracsoft.com/tech">DracSoft.com</a></h4>
+	
+	<table width="100%">
+	<tr>
+	<td style="border-bottom: solid 1px #ddd; background-color: #eee;">URL (ie: http://google.com): </td>
+	<td width="65%" style="border-bottom: solid 1px #ddd; background-color: #eee;">
+	<input type="text" style="width:100%" id="url" />
+	</td>
+	</tr>
+	<tr>
+	<td style="border-bottom: solid 1px #ddd; background-color: #eee;">Width (Number, Max = 780): </td>
+	<td style="border-bottom: solid 1px #ddd; background-color: #eee;">
+	<input type="text" id="width" />
+	</td>
+	</tr>
+	<tr>
+	<td style="border-bottom: solid 1px #ddd; background-color: #eee;">Height (Number, Max = 580): </td>
+	<td style="border-bottom: solid 1px #ddd; background-color: #eee;">
+	<input type="text" id="height" />
+	</td>
+	</tr>
+	<tr>
+	<td>	
+	<button onclick="save_options()">Save Options</button>
+	</td>
+	<td>
+	<div style="color: #090; font-weight: 800;" id="status"></div>
+	</td>
+	</tr>
+	</table>
+	
+</div>
+</div>
+</body>
+</html>

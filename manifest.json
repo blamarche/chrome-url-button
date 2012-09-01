@@ -1,0 +1,14 @@
+{
+  "name": "URL Button Popup - DracSoft.com",
+  "version": "1.0",
+  "description": "Open any url in an extension popup by clicking a button",
+  "options_page": "options.html",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "popup": "popup.html",
+	"default_title": "Open"
+  },
+  "permissions": [
+    "tabs", "http://*/*"
+  ]
+}
